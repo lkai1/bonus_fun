@@ -1,0 +1,61 @@
+.main {
+	width: 100%;
+	max-width: 1200px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 2px;
+	background: linear-gradient(180deg, #f4ac29, #da2515 51%, #1a1921);
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 100px;
+}
+
+.content {
+	position: relative;
+	border-radius: 20px;
+	background-color: black;
+	padding: 20px;
+	height: calc(100% - 2px);
+	width: calc(100% - 2px);
+	padding-top: 200px;
+}
+
+.topBonusTitle {
+	text-align: center;
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 25px;
+	font-style: italic;
+	font-weight: 600;
+	color: white;
+}
+
+.topBonusCard {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.bonusCardsTitle {
+	color: #676d7c;
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 25px;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.bonusCards {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
