@@ -1,4 +1,4 @@
-import styles from "./page.module.css";
+import styles from "./styles/page.module.css";
 import Footer from "./components/Footer"
 import CardsContainer from "./components/CardsContainer";
 import Header from "./components/Header";
