@@ -8,6 +8,7 @@ const Header = () => {
 			<Image
 				src={logoImage}
 				className={styles.logoImage}
+				alt="logo"
 			/>
 		</div>
 	)

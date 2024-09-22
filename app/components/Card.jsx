@@ -12,6 +12,7 @@ const Card = () => {
 				<Image
 					className={styles.casinoLogo}
 					src={casinoLogo}
+					alt="image"
 				/>
 				<h1 className={styles.casinoName}>
 					Stake

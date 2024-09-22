@@ -14,7 +14,7 @@ const initAdmin = async () => {
 			db.users.create({ username, hash })
 		}
 	} catch (e) {
-		console.log(e)
+		console.error(e)
 	}
 }
 

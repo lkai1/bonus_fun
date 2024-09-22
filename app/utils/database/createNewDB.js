@@ -6,8 +6,8 @@ const createNewDB = async (client) => {
 		if (!result.rows[0].exists) {
 			await client.query(`CREATE DATABASE ${process.env.DB_NAME}`)
 		}
-	} catch (error) {
-		console.log(error)
+	} catch (e) {
+		console.error(e)
 	}
 }
 

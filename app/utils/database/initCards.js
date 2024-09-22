@@ -44,7 +44,7 @@ const initCards = async () => {
 			await db.cards.bulkCreate(initialData)
 		}
 	} catch (e) {
-		console.log(e)
+		console.error(e)
 	}
 }
 

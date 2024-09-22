@@ -1,4 +1,5 @@
 "use client";
+import { v4 as uuidv4 } from "uuid"
 
 import { useEffect, useState } from "react";
 import styles from "../styles/cardsContainer.module.css"
@@ -29,7 +30,9 @@ const CardsContainer = () => {
 					{cards.filter((card) => { return card.order === 1 })
 						.map((card) => {
 							return (
-								<Card />
+								<Card
+									key={uuidv4()}
+								/>
 							)
 						})
 					}
@@ -39,7 +42,9 @@ const CardsContainer = () => {
 					{cards.filter((card) => { return card.order !== 1 }).sort((card1, card2) => { return card1.order - card2.order })
 						.map((card) => {
 							return (
-								<Card />
+								<Card
+									key={uuidv4()}
+								/>
 							)
 						})
 					}

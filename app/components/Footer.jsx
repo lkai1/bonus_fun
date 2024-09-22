@@ -10,11 +10,13 @@ const Footer = () => {
 				src={gambleAwareImage}
 				height={100}
 				width={300}
+				alt="image"
 			/>
 			<Image
 				src={responsibleGamblingImage}
 				height={100}
 				width={300}
+				alt="image"
 			/>
 		</footer>
 	)

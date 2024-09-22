@@ -5,7 +5,7 @@ import Header from "./components/Header";
 
 const Home = () => {
   return (
-    <div className={styles.page}>
+    <div className={styles.main}>
       <Header />
       <CardsContainer />
       <Footer />
