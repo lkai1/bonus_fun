@@ -27,7 +27,7 @@ const Card = () => {
 					Claim Bonus
 				</a>
 			</div>
-		</div >
+		</div>
 	)
 }
 

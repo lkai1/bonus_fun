@@ -3,6 +3,8 @@ import LoadingSpinner from "@/app/components/Loading"
 import { verifyLogin } from "@/app/utils/verifyLogin.js"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import styles from "../../styles/dashboard.module.css"
+import NewCard from "@/app/components/NewCard"
 
 
 const Dashboard = () => {
@@ -23,14 +25,12 @@ const Dashboard = () => {
 	}
 
 	return (
-		<div>
+		<div className={styles.main}>
 			{isLoginVerifiedState === undefined ?
-				<div>
-					<LoadingSpinner />
-				</div>
+				<LoadingSpinner />
 				:
-				<div>
-					oksdafuieaosdiuhfriseafldksiofdksfjsdijfj
+				<div className={styles.content}>
+					<NewCard />
 				</div>
 			}
 		</div>

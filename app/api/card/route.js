@@ -12,20 +12,25 @@ export const GET = async () => {
 }
 
 export const POST = async (request) => {
+	//auth middleware
 	try {
-		const data = request.body
-		const imageName = storeImage(image)
+		const formData = await request.formData()
+		const data = Object.fromEntries(formData);
+		const imageName = await storeImage(data.image)
+		console.log(imageName)
 		data.image = imageName
 		await db.cards.create(data)
 		return new Response("Card created", { status: 200 })
 	} catch (e) {
+		console.log(e)
 		return new Response("Error: Could not create card", { status: 500 })
 	}
 }
 
 export const PATCH = async (request) => {
+	//auth middleware
 	try {
-		const data = request.body
+		const data = await request.json()
 		const card = await db.cards.findOne({ id: data.id })
 		let imageName = ""
 		if (data.image) {
@@ -41,8 +46,9 @@ export const PATCH = async (request) => {
 }
 
 export const DELETE = async (request) => {
+	//auth middleware
 	try {
-		const data = request.body
+		const data = await request.json()
 		const card = db.cards.findOne({ id: data.id })
 		deleteImage(card.image)
 		card.destroy()
