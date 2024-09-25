@@ -10,6 +10,7 @@
 	margin: 20px;
 }
 
+/* check responsiveness for these cards also width: 315px */
 .main:hover {
 	box-shadow: 0 0 50px #eeae0ee8;
 }
@@ -24,9 +25,12 @@
 }
 
 .categoryTagContainer {
+	width: 100%;
+	height: 40px;
+	overflow: hidden;
 	display: flex;
 	justify-content: flex-end;
-	width: 100%;
+	align-items: center;
 }
 
 .categoryTag {
@@ -34,13 +38,31 @@
 	border: 2px solid #f4ac29;
 	border-radius: 20px;
 	width: fit-content;
-	margin: 10px 0 10px 0px;
-	padding: 5px 20px 5px 20px
+	padding: 5px 20px 5px 20px;
+	font-size: 14px;
 }
 
-.casinoLogo {
-	max-width: 100%;
+.imageContainer {
+	width: 100%;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 	padding: 10px;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.casinoNameContainer {
+	width: 100%;
+	height: 50px;
+	overflow: hidden;
+	margin-bottom: 15px;
 }
 
 .casinoName {
@@ -48,13 +70,29 @@
 	font-size: 38px;
 }
 
+.descriptionTitleContainer {
+	width: 100%;
+	height: 40px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+}
+
 .descriptionTitle {
 	color: white;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	font-size: 15px;
+	font-size: 17px;
 	font-style: italic;
 	font-weight: 600;
+}
+
+.descriptionContainer {
+	margin-top: 15px;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
 }
 
 .description {
@@ -68,7 +106,6 @@
 .claimButton {
 	text-align: center;
 	display: inline-block;
-	margin-top: 30px;
 	background-image: linear-gradient(#fea227, #fecd0a);
 	border: 2px solid #fbd82c;
 	border-radius: 15px;

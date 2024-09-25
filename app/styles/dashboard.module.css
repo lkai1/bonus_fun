@@ -1,3 +1,33 @@
 .main {
 	min-height: 100vh;
 }
+
+.content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.updateCardsTitle {
+	text-align: left;
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 28px;
+	font-style: italic;
+	font-weight: 600;
+	color: white;
+	width: 100%;
+	padding: 30px;
+}
+
+.updateCardsContainer {
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-bottom: 100px;
+}

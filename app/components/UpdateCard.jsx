@@ -1,39 +1,43 @@
-import styles from "../styles/newCard.module.css"
+import styles from "../styles/updateCard.module.css"
 import { useState } from "react";
 import finnishImg from "../images/finnish_flag.png"
 import englishImg from "../images/english_flag.png"
 import Image from "next/image";
 import axios from "axios"
+import { v4 as uuidv4 } from "uuid"
 import { getAuthToken } from "../utils/authToken";
 
-const NewCard = ({ reloadCards }) => {
+const UpdateCard = ({ card, reloadCards, totalNumberOfCards }) => {
 
-	const [showCategoryTagInputState, setShowCategoryTagInputState] = useState(true)
-	const [categoryTagState, setCategoryTagState] = useState("")
-	const [showCategoryTagInputFINState, setShowCategoryTagInputFINState] = useState(true)
-	const [categoryTagFINState, setCategoryTagFINState] = useState("")
+	const [showCategoryTagInputState, setShowCategoryTagInputState] = useState(card.category ? false : true)
+	const [categoryTagState, setCategoryTagState] = useState(card.category)
+	const [showCategoryTagInputFINState, setShowCategoryTagInputFINState] = useState(card.categoryFin ? false : true)
+	const [categoryTagFINState, setCategoryTagFINState] = useState(card.categoryFin)
 
 	const [selectedImageState, setSelectedImageState] = useState(undefined);
-	const [imagePreviewState, setImagePreviewState] = useState(undefined);
-	const [showImageInputState, setShowImageInput] = useState(true)
+	const [imagePreviewState, setImagePreviewState] = useState(`data:image/png;base64,${card.image}`);
+	const [showImageInputState, setShowImageInput] = useState(card.image ? false : true)
 
-	const [showCasinoNameInputState, setShowCasinoNameInputState] = useState(true)
-	const [casinoNameState, setCasinoNameState] = useState("")
+	const [showCasinoNameInputState, setShowCasinoNameInputState] = useState(card.title ? false : true)
+	const [casinoNameState, setCasinoNameState] = useState(card.title)
 
-	const [showDescriptionTitleInputState, setShowDescriptionTitleInputState] = useState(true)
-	const [descriptionTitleState, setDescriptionTitleState] = useState("")
-	const [showDescriptionTitleInputFINState, setShowDescriptionTitleInputFINState] = useState(true)
-	const [descriptionTitleFINState, setDescriptionTitleFINState] = useState("")
+	const [showDescriptionTitleInputState, setShowDescriptionTitleInputState] = useState(card.descriptionTitle ? false : true)
+	const [descriptionTitleState, setDescriptionTitleState] = useState(card.descriptionTitle)
+	const [showDescriptionTitleInputFINState, setShowDescriptionTitleInputFINState] = useState(card.descriptionTitleFin ? false : true)
+	const [descriptionTitleFINState, setDescriptionTitleFINState] = useState(card.descriptionTitleFin)
 
-	const [showDescriptionInputState, setShowDescriptionInputState] = useState(true)
-	const [descriptionState, setDescriptionState] = useState("")
-	const [showDescriptionInputFINState, setShowDescriptionInputFINState] = useState(true)
-	const [descriptionFINState, setDescriptionFINState] = useState("")
+	const [showDescriptionInputState, setShowDescriptionInputState] = useState(card.description ? false : true)
+	const [descriptionState, setDescriptionState] = useState(card.description)
+	const [showDescriptionInputFINState, setShowDescriptionInputFINState] = useState(card.descriptionFin ? false : true)
+	const [descriptionFINState, setDescriptionFINState] = useState(card.descriptionFin)
 
-	const [showClaimLinkInputState, setShowClaimLinkInputState] = useState(true)
-	const [claimLinkState, setClaimLinkState] = useState("")
+	const [showClaimLinkInputState, setShowClaimLinkInputState] = useState(card.refLink ? false : true)
+	const [claimLinkState, setClaimLinkState] = useState(card.refLink)
 
 	const [selectedLanguage, setSelectedLanguage] = useState("en")
+
+	const [showOrderSelectionMenu, setShowOrderSelectionMenu] = useState(false)
+	const [cardOrderState, setCardOrderState] = useState(card.order)
 
 	const handleImageChange = (e) => {
 		const file = e.target.files[0];
@@ -51,56 +55,27 @@ const NewCard = ({ reloadCards }) => {
 			reader.readAsDataURL(file);
 		}
 	};
-
-	const emptyAll = () => {
-		setShowCategoryTagInputState(true)
-		setCategoryTagState("")
-		setShowCategoryTagInputFINState(true)
-		setCategoryTagFINState("")
-
-		setSelectedImageState(undefined)
-		setImagePreviewState(undefined)
-		setShowImageInput(true)
-
-		setShowCasinoNameInputState(true)
-		setCasinoNameState("")
-
-		setShowDescriptionTitleInputState(true)
-		setDescriptionTitleState("")
-		setShowDescriptionTitleInputFINState(true)
-		setDescriptionTitleFINState("")
-
-		setShowDescriptionInputState(true)
-		setDescriptionState("")
-		setShowDescriptionInputFINState(true)
-		setDescriptionFINState("")
-
-		setShowClaimLinkInputState(true)
-		setClaimLinkState("")
-
-		setSelectedLanguage("en")
-	}
-
-	const handleCreateCard = async () => {
+	const handleUpdateCard = async () => {
 		const formData = new FormData()
+		formData.append("id", card.id)
 		formData.append("category", categoryTagState)
 		formData.append("categoryFin", categoryTagFINState)
-		formData.append("image", selectedImageState)
+		formData.append("image", selectedImageState ? selectedImageState : "")
 		formData.append("title", casinoNameState)
 		formData.append("descriptionTitle", descriptionTitleState)
 		formData.append("descriptionTitleFin", descriptionTitleFINState)
 		formData.append("description", descriptionState)
 		formData.append("descriptionFin", descriptionFINState)
 		formData.append("refLink", claimLinkState)
+		formData.append("order", cardOrderState)
 
-		await axios.post("/api/card", formData, {
+		await axios.patch("/api/card", formData, {
 			headers: {
 				Authorization: getAuthToken()
 			}
 		})
 			.then(() => {
-				emptyAll()
-				alert("Successfully created new card.")
+				alert("Successfully updated card.")
 				reloadCards()
 			}).catch((e) => {
 				console.error(e.response.data)
@@ -109,14 +84,7 @@ const NewCard = ({ reloadCards }) => {
 
 	return (
 		<div className={styles.main}>
-			<h1 className={styles.title}>Create new card</h1>
 			<div className={styles.contentContainer}>
-				<p className={styles.guideText}>
-					{selectedLanguage === "en" ?
-						"Enter category, description title, and description, only if you want this card to be in the english home page."
-						:
-						"Enter category, description title, and description, only if you want this card to be in the finnish home page."}
-				</p>
 				<div className={styles.cardContainer}>
 					<div className={styles.cardContent}>
 
@@ -244,16 +212,27 @@ const NewCard = ({ reloadCards }) => {
 
 					</div>
 				</div>
-				<div className={styles.languageSelectionContainer}>
+				<div className={styles.settingsContainer}>
 					<Image className={selectedLanguage === "en" ? styles.languageSelectionButtonSelected : styles.languageSelectionButton} src={englishImg} alt="englishImg" onClick={() => { setSelectedLanguage("en") }} />
 					<Image className={selectedLanguage === "fi" ? styles.languageSelectionButtonSelected : styles.languageSelectionButton} src={finnishImg} alt="finnishImg" onClick={() => { setSelectedLanguage("fi") }} />
+					<div className={showOrderSelectionMenu ? styles.orderSelectionMenu : styles.orderSelectionMenuHidden}>
+						{Array.from({ length: totalNumberOfCards }, (_, i) => i + 1).map((number) => {
+							return <button key={uuidv4()} className={styles.orderSelectionButton} onClick={() => {
+								setCardOrderState(number)
+								setShowOrderSelectionMenu(!showOrderSelectionMenu)
+							}}>
+								{`#${number}`}
+							</button>
+						})}
+					</div>
+					<button className={styles.orderSelectionMenuButton} onClick={() => { setShowOrderSelectionMenu(!showOrderSelectionMenu) }}>{`#${cardOrderState}`}</button>
 				</div>
-				<button className={styles.createCardButton} onClick={() => { handleCreateCard() }}>
-					Create card
+				<button className={styles.updateCardButton} onClick={() => { handleUpdateCard() }}>
+					Update card
 				</button>
 			</div>
 		</div>
 	)
 }
 
-export default NewCard 
+export default UpdateCard 

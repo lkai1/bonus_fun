@@ -9,8 +9,10 @@ const Card = (sequelize) => {
 			primaryKey: true
 		},
 		order: {
-			type: DataTypes.INTEGER,
-			unique: true
+			type: DataTypes.INTEGER
+		},
+		orderFin: {
+			type: DataTypes.INTEGER
 		},
 		category: {
 			type: DataTypes.TEXT,

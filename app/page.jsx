@@ -4,6 +4,7 @@ import CardsContainer from "./components/CardsContainer";
 import Header from "./components/Header";
 
 const Home = () => {
+  // this page is not responsive, fix it
   return (
     <div className={styles.main}>
       <Header />

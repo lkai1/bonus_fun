@@ -7,13 +7,15 @@ import axios from "axios"
 
 const CardsContainer = () => {
 
-	const [cards, setCards] = useState([])
+	const [cardsState, setCardsState] = useState([])
 
 	useEffect(() => {
 		const getCards = async () => {
 			try {
 				const response = await axios.get(`/api/card`);
-				setCards(response.data)
+				//on finnish page use finnish order
+				const sortedCards = response.data.sort((a, b) => a.order - b.order)
+				setCardsState(sortedCards)
 			} catch (e) {
 				console.log("500: Failed to retrieve cards.")
 			}
@@ -26,23 +28,23 @@ const CardsContainer = () => {
 			<div className={styles.content}>
 				<div className={styles.topBonusCard}>
 					<h1 className={styles.topBonusTitle}>Top bonus of the week</h1>
-					{cards.filter((card) => { return card.order === 1 })
-						.map((card) => {
-							return (
-								<Card
-									key={uuidv4()}
-								/>
-							)
-						})
+					{cardsState[0] ?
+						<Card
+							key={uuidv4()}
+							data={cardsState[0]}
+						/>
+						:
+						<></>
 					}
 				</div>
 				<p className={styles.bonusCardsTitle}>Win before you play</p>
 				<div className={styles.bonusCards}>
-					{cards.filter((card) => { return card.order !== 1 }).sort((card1, card2) => { return card1.order - card2.order })
+					{cardsState.filter((card) => { return card.order !== cardsState[0].order })
 						.map((card) => {
 							return (
 								<Card
 									key={uuidv4()}
+									data={card}
 								/>
 							)
 						})

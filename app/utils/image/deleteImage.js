@@ -3,7 +3,8 @@ import path from 'path';
 
 export const deleteImage = (imageName) => {
 	try {
-		fs.unlinkSync(path.join(__dirname, "../../images/", imageName));
+		const UPLOAD_DIR = path.resolve(process.env.ROOT_PATH ?? "", "app/images");
+		fs.unlinkSync(path.resolve(UPLOAD_DIR, imageName));
 	} catch (e) {
 		console.error(e)
 	}

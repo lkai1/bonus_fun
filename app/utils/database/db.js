@@ -7,6 +7,7 @@ const sequelize = new Sequelize.Sequelize(`postgres://${process.env.DB_USER}:${p
 const db = {}
 
 db.sequelize = sequelize
+db.Sequelize = Sequelize;
 
 db.users = User(sequelize)
 db.cards = Card(sequelize)

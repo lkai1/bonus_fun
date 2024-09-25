@@ -1,18 +1,40 @@
 import jwt from "jsonwebtoken"
+import { headers } from "next/headers"
 
-export const verifyJWTMiddleware = async (request, response, next) => {
+const verifyJWTMiddleware = (_request, response, next) => {
 	try {
-		const token = request.headers.authorization
+		const token = headers().get("authorization")
 		if (!token) return response.status(401).send("Access denied!")
+		console.log(token)
 
 		try {
 			jwt.verify(token, process.env.TOKEN_SECRET)
 			next()
 		} catch (e) {
+			console.log(e)
 			response.status(400).send("Invalid token!")
 		}
 
-	} catch (_error) {
+	} catch (e) {
 		response.status(500).send("Something went wrong! Try again later.")
 	}
 }
+
+export const middlewareWrapper = (handler) => async (req) => {
+	return new Promise((resolve, reject) => {
+		const res = {
+			status: (status) => {
+				res.statusCode = status;
+				return res;
+			},
+			send: (message) => {
+				resolve(new Response(message, { status: res.statusCode }));
+			},
+		};
+
+		verifyJWTMiddleware(req, res, async () => {
+			const response = await handler(req);
+			resolve(response);
+		});
+	});
+};
