@@ -5,7 +5,6 @@ const verifyJWTMiddleware = (_request, response, next) => {
 	try {
 		const token = headers().get("authorization")
 		if (!token) return response.status(401).send("Access denied!")
-		console.log(token)
 
 		try {
 			jwt.verify(token, process.env.TOKEN_SECRET)

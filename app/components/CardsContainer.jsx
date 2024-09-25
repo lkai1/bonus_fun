@@ -12,9 +12,13 @@ const CardsContainer = () => {
 	useEffect(() => {
 		const getCards = async () => {
 			try {
-				const response = await axios.get(`/api/card`);
+				const response = await axios.get(`/api/card`, {
+					params: {
+						language: "en"
+					}
+				});
 				//on finnish page use finnish order
-				const sortedCards = response.data.sort((a, b) => a.order - b.order)
+				const sortedCards = response.data.sort((a, b) => a.orderNumberEN - b.orderNumberEN)
 				setCardsState(sortedCards)
 			} catch (e) {
 				console.log("500: Failed to retrieve cards.")
@@ -39,7 +43,7 @@ const CardsContainer = () => {
 				</div>
 				<p className={styles.bonusCardsTitle}>Win before you play</p>
 				<div className={styles.bonusCards}>
-					{cardsState.filter((card) => { return card.order !== cardsState[0].order })
+					{cardsState.filter((card) => { return card.orderNumberEN !== cardsState[0].orderNumberEN })
 						.map((card) => {
 							return (
 								<Card

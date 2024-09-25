@@ -5,7 +5,7 @@ const Card = ({ data }) => {
 		<div className={styles.main}>
 			<div className={styles.content}>
 				<div className={styles.categoryTagContainer}>
-					<p className={styles.categoryTag}>{data.category}</p>
+					<p className={styles.categoryTag}>{data.categoryEN}</p>
 				</div>
 				<div className={styles.imageContainer}>
 					<img
@@ -21,19 +21,19 @@ const Card = ({ data }) => {
 				</div>
 				<div className={styles.descriptionTitleContainer}>
 					<h4 className={styles.descriptionTitle}>
-						{data.descriptionTitle}
+						{data.descriptionTitleEN}
 					</h4>
 				</div>
 				<div className={styles.descriptionContainer}>
 					<p className={styles.description}>
-						{data.description}
+						{data.descriptionEN}
 					</p>
 				</div>
 				<a className={styles.claimButton} href={`${data.refLink}`} target="_blank">
 					Claim Bonus
 				</a>
 			</div>
-		</div >
+		</div>
 	)
 }
 

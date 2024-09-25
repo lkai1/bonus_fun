@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState } from "react";
 import styles from "../styles/adminLogin.module.css"
 import Header from "../components/Header";
-import { clearAuthToken, getAuthToken, setAuthToken } from "../utils/authToken";
+import { clearAuthToken, setAuthToken } from "../utils/authToken";
 import { useRouter } from "next/navigation";
 
 const AdminLogin = () => {

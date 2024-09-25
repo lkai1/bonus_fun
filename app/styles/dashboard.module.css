@@ -9,6 +9,29 @@
 	align-items: center;
 }
 
+.logoutButtonContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.logoutButton {
+	background-image: linear-gradient(#fea227, #fecd0a);
+	color: black;
+	font-size: 28px;
+	padding: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-right: 20px;
+	margin-top: 20px;
+	border-radius: 20px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
 .updateCardsTitle {
 	text-align: left;
 	margin-top: 0;
@@ -20,6 +43,45 @@
 	color: white;
 	width: 100%;
 	padding: 30px;
+}
+
+.selectUpdateModeContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.selectUpdateModeButton {
+	text-align: center;
+	background-image: linear-gradient(#fea227, #fecd0a);
+	border: 2px solid #fbd82c;
+	border-radius: 15px;
+	width: 90px;
+	height: 70px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 15px;
+	cursor: pointer;
+	margin: 10px;
+}
+
+.selectUpdateModeButtonSelected {
+	text-align: center;
+	background-image: linear-gradient(#fea227, #fecd0a);
+	border: 2px solid #fbd82c;
+	border-radius: 15px;
+	width: 90px;
+	height: 70px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 15px;
+	cursor: pointer;
+	margin: 10px;
+	box-shadow: 0 0 50px #eeae0ee8;
 }
 
 .updateCardsContainer {

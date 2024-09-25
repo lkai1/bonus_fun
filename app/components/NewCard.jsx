@@ -8,8 +8,8 @@ import { getAuthToken } from "../utils/authToken";
 
 const NewCard = ({ reloadCards }) => {
 
-	const [showCategoryTagInputState, setShowCategoryTagInputState] = useState(true)
-	const [categoryTagState, setCategoryTagState] = useState("")
+	const [showCategoryTagInputENState, setShowCategoryTagInputENState] = useState(true)
+	const [categoryTagENState, setCategoryTagENState] = useState("")
 	const [showCategoryTagInputFINState, setShowCategoryTagInputFINState] = useState(true)
 	const [categoryTagFINState, setCategoryTagFINState] = useState("")
 
@@ -20,13 +20,13 @@ const NewCard = ({ reloadCards }) => {
 	const [showCasinoNameInputState, setShowCasinoNameInputState] = useState(true)
 	const [casinoNameState, setCasinoNameState] = useState("")
 
-	const [showDescriptionTitleInputState, setShowDescriptionTitleInputState] = useState(true)
-	const [descriptionTitleState, setDescriptionTitleState] = useState("")
+	const [showDescriptionTitleInputENState, setShowDescriptionTitleInputENState] = useState(true)
+	const [descriptionTitleENState, setDescriptionTitleENState] = useState("")
 	const [showDescriptionTitleInputFINState, setShowDescriptionTitleInputFINState] = useState(true)
 	const [descriptionTitleFINState, setDescriptionTitleFINState] = useState("")
 
-	const [showDescriptionInputState, setShowDescriptionInputState] = useState(true)
-	const [descriptionState, setDescriptionState] = useState("")
+	const [showDescriptionInputENState, setShowDescriptionInputENState] = useState(true)
+	const [descriptionENState, setDescriptionENState] = useState("")
 	const [showDescriptionInputFINState, setShowDescriptionInputFINState] = useState(true)
 	const [descriptionFINState, setDescriptionFINState] = useState("")
 
@@ -53,8 +53,8 @@ const NewCard = ({ reloadCards }) => {
 	};
 
 	const emptyAll = () => {
-		setShowCategoryTagInputState(true)
-		setCategoryTagState("")
+		setShowCategoryTagInputENState(true)
+		setCategoryTagENState("")
 		setShowCategoryTagInputFINState(true)
 		setCategoryTagFINState("")
 
@@ -65,13 +65,13 @@ const NewCard = ({ reloadCards }) => {
 		setShowCasinoNameInputState(true)
 		setCasinoNameState("")
 
-		setShowDescriptionTitleInputState(true)
-		setDescriptionTitleState("")
+		setShowDescriptionTitleInputENState(true)
+		setDescriptionTitleENState("")
 		setShowDescriptionTitleInputFINState(true)
 		setDescriptionTitleFINState("")
 
-		setShowDescriptionInputState(true)
-		setDescriptionState("")
+		setShowDescriptionInputENState(true)
+		setDescriptionENState("")
 		setShowDescriptionInputFINState(true)
 		setDescriptionFINState("")
 
@@ -83,14 +83,14 @@ const NewCard = ({ reloadCards }) => {
 
 	const handleCreateCard = async () => {
 		const formData = new FormData()
-		formData.append("category", categoryTagState)
-		formData.append("categoryFin", categoryTagFINState)
+		formData.append("categoryEN", categoryTagENState)
+		formData.append("categoryFIN", categoryTagFINState)
 		formData.append("image", selectedImageState)
 		formData.append("title", casinoNameState)
-		formData.append("descriptionTitle", descriptionTitleState)
-		formData.append("descriptionTitleFin", descriptionTitleFINState)
-		formData.append("description", descriptionState)
-		formData.append("descriptionFin", descriptionFINState)
+		formData.append("descriptionTitleEN", descriptionTitleENState)
+		formData.append("descriptionTitleFIN", descriptionTitleFINState)
+		formData.append("descriptionEN", descriptionENState)
+		formData.append("descriptionFIN", descriptionFINState)
 		formData.append("refLink", claimLinkState)
 
 		await axios.post("/api/card", formData, {
@@ -123,13 +123,13 @@ const NewCard = ({ reloadCards }) => {
 
 						{selectedLanguage === "en" ?
 							<div className={styles.categoryTagEditContainer}>
-								{showCategoryTagInputState === false ?
-									<div className={styles.categoryTagContainer} onMouseOver={() => { setShowCategoryTagInputState(true) }}>
-										<p className={styles.categoryTag}>{categoryTagState}</p>
+								{showCategoryTagInputENState === false ?
+									<div className={styles.categoryTagContainer} onMouseOver={() => { setShowCategoryTagInputENState(true) }}>
+										<p className={styles.categoryTag}>{categoryTagENState}</p>
 									</div>
 									:
-									<div className={styles.categoryTagInputContainer} onMouseLeave={() => { if (categoryTagState) { setShowCategoryTagInputState(false) } }}>
-										<input type="text" className={styles.categoryTagInput} placeholder="Enter category" value={categoryTagState} onChange={(e) => { setCategoryTagState(e.target.value) }} />
+									<div className={styles.categoryTagInputContainer} onMouseLeave={() => { if (categoryTagENState) { setShowCategoryTagInputENState(false) } }}>
+										<input type="text" className={styles.categoryTagInput} placeholder="Enter category" value={categoryTagENState} onChange={(e) => { setCategoryTagENState(e.target.value) }} />
 									</div>
 								}
 							</div>
@@ -177,13 +177,13 @@ const NewCard = ({ reloadCards }) => {
 
 						{selectedLanguage === "en" ?
 							<div className={styles.descriptionTitleEditContainer}>
-								{showDescriptionTitleInputState === false ?
-									<div className={styles.descriptionTitleContainer} onMouseOver={() => { setShowDescriptionTitleInputState(true) }}>
-										<h4 className={styles.descriptionTitle}>{descriptionTitleState}</h4>
+								{showDescriptionTitleInputENState === false ?
+									<div className={styles.descriptionTitleContainer} onMouseOver={() => { setShowDescriptionTitleInputENState(true) }}>
+										<h4 className={styles.descriptionTitle}>{descriptionTitleENState}</h4>
 									</div>
 									:
-									<div className={styles.descriptionTitleInputContainer} onMouseLeave={() => { if (descriptionTitleState) [setShowDescriptionTitleInputState(false)] }}>
-										<input type="text" className={styles.descriptionTitleInput} placeholder="Enter description title" value={descriptionTitleState} onChange={(e) => { setDescriptionTitleState(e.target.value) }} />
+									<div className={styles.descriptionTitleInputContainer} onMouseLeave={() => { if (descriptionTitleENState) [setShowDescriptionTitleInputENState(false)] }}>
+										<input type="text" className={styles.descriptionTitleInput} placeholder="Enter description title" value={descriptionTitleENState} onChange={(e) => { setDescriptionTitleENState(e.target.value) }} />
 									</div>
 								}
 							</div>
@@ -204,13 +204,13 @@ const NewCard = ({ reloadCards }) => {
 
 						{selectedLanguage === "en" ?
 							<div className={styles.descriptionEditContainer}>
-								{showDescriptionInputState === false ?
-									<div className={styles.descriptionContainer} onMouseOver={() => { setShowDescriptionInputState(true) }}>
-										<p className={styles.description}>{descriptionState}</p>
+								{showDescriptionInputENState === false ?
+									<div className={styles.descriptionContainer} onMouseOver={() => { setShowDescriptionInputENState(true) }}>
+										<p className={styles.description}>{descriptionENState}</p>
 									</div>
 									:
-									<div className={styles.descriptionInputContainer} onMouseLeave={() => { if (descriptionState) { setShowDescriptionInputState(false) } }}>
-										<textarea className={styles.descriptionInput} placeholder="Enter description" value={descriptionState} onChange={(e) => { setDescriptionState(e.target.value) }} />
+									<div className={styles.descriptionInputContainer} onMouseLeave={() => { if (descriptionENState) { setShowDescriptionInputENState(false) } }}>
+										<textarea className={styles.descriptionInput} placeholder="Enter description" value={descriptionENState} onChange={(e) => { setDescriptionENState(e.target.value) }} />
 									</div>
 								}
 							</div>

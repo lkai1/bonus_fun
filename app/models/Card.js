@@ -8,17 +8,17 @@ const Card = (sequelize) => {
 			unique: true,
 			primaryKey: true
 		},
-		order: {
+		orderNumberEN: {
 			type: DataTypes.INTEGER
 		},
-		orderFin: {
+		orderNumberFIN: {
 			type: DataTypes.INTEGER
 		},
-		category: {
+		categoryEN: {
 			type: DataTypes.TEXT,
 			allowNull: true
 		},
-		categoryFin: {
+		categoryFIN: {
 			type: DataTypes.TEXT,
 			allowNull: true
 		},
@@ -30,19 +30,19 @@ const Card = (sequelize) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		descriptionTitle: {
+		descriptionTitleEN: {
 			type: DataTypes.STRING,
 			allowNull: true
 		},
-		descriptionTitleFin: {
+		descriptionTitleFIN: {
 			type: DataTypes.STRING,
 			allowNull: true
 		},
-		description: {
+		descriptionEN: {
 			type: DataTypes.TEXT,
 			allowNull: true
 		},
-		descriptionFin: {
+		descriptionFIN: {
 			type: DataTypes.TEXT,
 			allowNull: true
 		},
