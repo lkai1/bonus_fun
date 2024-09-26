@@ -46,9 +46,13 @@ const Card = (sequelize) => {
 			type: DataTypes.TEXT,
 			allowNull: true
 		},
-		refLink: {
+		refLinkEN: {
 			type: DataTypes.TEXT,
-			allowNull: false
+			allowNull: true
+		},
+		refLinkFIN: {
+			type: DataTypes.TEXT,
+			allowNull: true
 		}
 	}, {
 		timestamps: false

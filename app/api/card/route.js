@@ -17,7 +17,8 @@ export const GET = async (request) => {
 					[db.Sequelize.Op.or]: [
 						{ categoryEN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
 						{ descriptionTitleEN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
-						{ descriptionEN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } }
+						{ descriptionEN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
+						{ refLinkEN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } }
 					]
 				}
 			});
@@ -27,7 +28,8 @@ export const GET = async (request) => {
 					[db.Sequelize.Op.or]: [
 						{ categoryFIN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
 						{ descriptionTitleFIN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
-						{ descriptionFIN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } }
+						{ descriptionFIN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } },
+						{ refLinkFIN: { [db.Sequelize.Op.ne]: '', [db.Sequelize.Op.not]: null } }
 					]
 				}
 			});
@@ -88,11 +90,11 @@ const patchHandler = async (request) => {
 			data.orderNumberFIN = Number(data.orderNumberFIN)
 		}
 
-		if ((data.categoryEN || data.descriptionTitleEN || data.descriptionEN) && !!card.orderNumberEN == false) {
+		if ((data.categoryEN || data.descriptionTitleEN || data.descriptionEN || card.refLinkEN) && !!card.orderNumberEN == false) {
 			const result = await setCardOrdersOnCreateEN(data)
 			card.orderNumberEN = result.orderNumberEN
 		}
-		if ((data.categoryFIN || data.descriptionTitleFIN || data.descriptionFIN) && !!card.orderNumberFIN == false) {
+		if ((data.categoryFIN || data.descriptionTitleFIN || data.descriptionFIN || card.refLinkFIN) && !!card.orderNumberFIN == false) {
 			const result = await setCardOrdersOnCreateFIN(data)
 			card.orderNumberFIN = result.orderNumberFIN
 		}
@@ -124,12 +126,12 @@ const patchHandler = async (request) => {
 					}
 				}
 			})
-			if (!card.descriptionEN && !card.descriptionTitleEN && !card.categoryEN) {
+			if (!card.descriptionEN && !card.descriptionTitleEN && !card.categoryEN && !card.refLinkEN) {
 				await setCardsOrdersOnDeleteEN(card.orderNumberEN)
 				card.orderNumberEN = null
 			}
 
-			if (!card.descriptionFIN && !card.descriptionTitleEFIN && !card.categoryFIN) {
+			if (!card.descriptionFIN && !card.descriptionTitleEFIN && !card.categoryFIN && !card.refLinkFIN) {
 				await setCardsOrdersOnDeleteFIN(card.orderNumberFIN)
 				card.orderNumberFIN = null
 			}

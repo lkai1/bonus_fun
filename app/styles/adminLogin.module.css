@@ -5,10 +5,10 @@
 }
 
 .loginFormContainer {
-	width: 340px;
+	width: 315px;
 	padding: 2px;
 	margin: auto;
-	margin-top: 200px;
+	margin-top: 190px;
 	margin-bottom: 100px;
 	background: linear-gradient(180deg, #f4ac29, #da2515 51%, #1a1921);
 	border-radius: 20px;
@@ -35,13 +35,8 @@
 	font-size: 25px;
 }
 
-.input:hover {
-	box-shadow: 0 0 50px #eeae0e96;
-}
-
 .input:focus {
 	outline: none;
-	box-shadow: 0 0 50px #eeae0ee8;
 }
 
 .button {
@@ -54,7 +49,7 @@
 	border-radius: 15px;
 	width: 100%;
 	text-decoration: none;
-	box-shadow: 0 0 50px #eeae0e96;
+	box-shadow: 0 0 50px #eeaf0e4d;
 	font-size: 38px;
 	font-weight: bold;
 	padding: 15px;
@@ -62,5 +57,5 @@
 }
 
 .button:hover {
-	box-shadow: 0 0 50px #eeae0ee8;
+	box-shadow: 0 0 50px 20px #eeaf0e4d;
 }

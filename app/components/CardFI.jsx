@@ -29,7 +29,7 @@ const CardFI = ({ data }) => {
 						{data.descriptionFIN}
 					</p>
 				</div>
-				<a className={styles.claimButton} href={`${data.refLink}`} target="_blank">
+				<a className={styles.claimButton} href={`${data.refLinkFIN}`} target="_blank">
 					Claim Bonus
 				</a>
 			</div>

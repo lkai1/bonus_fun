@@ -12,7 +12,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino",
 		descriptionEN: "Bonus 100% up to €500 + 200 freespins",
 		descriptionFIN: "Bonus 100% jopa €500 asti + 200 ilmaispyöräytystä",
-		refLink: "https://go.rootzaffiliates.com/visit/?bta=100042&nci=5775&utm_campaign=FI"
+		refLinkEN: "https://go.rootzaffiliates.com/visit/?bta=100042&nci=5755&utm_campaign=GEO",
+		refLinkFIN: "https://go.rootzaffiliates.com/visit/?bta=100042&nci=5775&utm_campaign=FI"
 	},
 	{
 		orderNumberEN: 13,
@@ -25,7 +26,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino",
 		descriptionEN: "Bonus 100% up to €4000 + 475 freespins",
 		descriptionFIN: "Bonus 100% jopa €4000 asti + 475 ilmaispyöräytystä",
-		refLink: "https://rooli.live/n1f5aebd91"
+		refLinkEN: "https://rooli.live/n1007248b5",
+		refLinkFIN: "https://rooli.live/n1f5aebd91"
 	},
 	{
 		orderNumberEN: 8,
@@ -38,7 +40,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionEN: "Bonus 100% up to €500 + 200 freespins",
 		descriptionFIN: "Bonus 100% jopa €500 asti + 200 ilmaispyöräytystä",
-		refLink: "https://wnc.servclick1move.com/?mid=225001_1335485"
+		refLinkEN: "https://wnc.servclick1move.com/?mid=225001_1335901",
+		refLinkFIN: "https://wnc.servclick1move.com/?mid=225001_1335485"
 	},
 	{
 		orderNumberFIN: 4,
@@ -47,7 +50,7 @@ const initialData = [
 		title: "casinotogether",
 		descriptionTitleFIN: "Kasino",
 		descriptionFIN: "Bonus 100% jopa €300 asti + 100 ilmaispyöräytystä",
-		refLink: "https://record.nolimitpartners.com/_pvDnTaw_ptiVAv0U_Fv2nWNd7ZgqdRLk/6872/"
+		refLinkFIN: "https://record.nolimitpartners.com/_pvDnTaw_ptiVAv0U_Fv2nWNd7ZgqdRLk/6872/"
 	},
 	{
 		orderNumberFIN: 5,
@@ -56,7 +59,7 @@ const initialData = [
 		title: "Crocoslots",
 		descriptionTitleFIN: "Kasino",
 		descriptionFIN: "Bonus 100% jopa €3000 asti + 225 ilmaispyöräytystä",
-		refLink: "https://crocoslotsmedia.com/a5dcbe78c"
+		refLinkFIN: "https://crocoslotsmedia.com/a5dcbe78c"
 	},
 	{
 		orderNumberEN: 9,
@@ -69,7 +72,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionEN: "Bonus 100% up to €1000 + 50 freespins",
 		descriptionFIN: "Bonus 100% jopa €1000 asti + 50 ilmaispyöräytystä",
-		refLink: "https://media.highaffiliates.com/redirect.aspx?pid=14000&bid=1818"
+		refLinkEN: "https://media.highaffiliates.com/redirect.aspx?pid=13981&bid=1809",
+		refLinkFIN: "https://media.highaffiliates.com/redirect.aspx?pid=14000&bid=1818"
 	},
 	{
 		orderNumberEN: 10,
@@ -82,7 +86,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino",
 		descriptionEN: "Bonus 100% up to €8000 + 500 freespins",
 		descriptionFIN: "Bonus 100% jopa €8000 asti + 500 ilmaispyöräytystä",
-		refLink: "https://playluckywins.com/jba908bb9"
+		refLinkEN: "https://playluckywins.com/j75fe75c3",
+		refLinkFIN: "https://playluckywins.com/jba908bb9"
 	},
 	{
 		orderNumberEN: 11,
@@ -95,7 +100,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionEN: "Bonus 100% + 100 freespins",
 		descriptionFIN: "Bonus 100% + 100 ilmaispyöräytystä",
-		refLink: "https://record.beastpartners.io/_y5qu-K-dPJ2uqxJ1W5ErsWNd7ZgqdRLk/2/"
+		refLinkEN: "https://record.beastpartners.io/_y5qu-K-dPJ0WqcfzuvZcQGNd7ZgqdRLk/1/",
+		refLinkFIN: "https://record.beastpartners.io/_y5qu-K-dPJ2uqxJ1W5ErsWNd7ZgqdRLk/2/"
 	},
 	{
 		orderNumberFIN: 9,
@@ -104,7 +110,7 @@ const initialData = [
 		title: "OlympusBet",
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionFIN: "Bonus 100% jopa 500€ asti + 100 ilmaispyöräytystä",
-		refLink: "https://online.olympusbet.com/promoRedirect?key=ej0xMzg0MjgxOSZsPTEzODQyNjMzJnA9MTU3Nzg%3D"
+		refLinkFIN: "https://online.olympusbet.com/promoRedirect?key=ej0xMzg0MjgxOSZsPTEzODQyNjMzJnA9MTU3Nzg%3D"
 	},
 	{
 		orderNumberFIN: 10,
@@ -113,7 +119,7 @@ const initialData = [
 		title: "Raketti",
 		descriptionTitleFIN: "Kasino",
 		descriptionFIN: "Jopa 20% päivittäinen cashback + 300 ilmaispyöräytystä",
-		refLink: "https://media.rhinoaffiliates.com/redirect.aspx?pid=14156&bid=2236"
+		refLinkFIN: "https://media.rhinoaffiliates.com/redirect.aspx?pid=14156&bid=2236"
 	},
 	{
 		orderNumberEN: 12,
@@ -126,7 +132,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino",
 		descriptionEN: "Bonus 100% up to 300€ + 100 freespins",
 		descriptionFIN: "Bonus 100% jopa 300€ asti + 100 ilmaispyöräytystä",
-		refLink: "https://rebellionplay.com/j3be41efb"
+		refLinkEN: "https://rebellionplay.com/jd8ed8ba7",
+		refLinkFIN: "https://rebellionplay.com/j3be41efb"
 	},
 	{
 		orderNumberFIN: 12,
@@ -135,7 +142,7 @@ const initialData = [
 		title: "Rooster",
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionFIN: "Bonus 100% jopa 5000€ asti + 300 ilmaispyöräytystä",
-		refLink: "https://roosterpartner.media/n15fdec885"
+		refLinkFIN: "https://roosterpartner.media/n15fdec885"
 	},
 	{
 		orderNumberEN: 14,
@@ -148,7 +155,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionEN: "Bonus 100% up to 500€ + 200 freespins",
 		descriptionFIN: "Bonus 100% jopa 500€ asti + 200 ilmaispyöräytystä",
-		refLink: "https://sgc.servclick1move.com/?mid=125069_912265"
+		refLinkEN: "https://sgc.servclick1move.com/?mid=125069_911445",
+		refLinkFIN: "https://sgc.servclick1move.com/?mid=125069_912265"
 	},
 	{
 		orderNumberEN: 15,
@@ -161,7 +169,8 @@ const initialData = [
 		descriptionTitleFIN: "Kasino & urheilu",
 		descriptionEN: "Bonus 100% up to 2000€ + 200 freespins",
 		descriptionFIN: "Bonus 100% jopa 2000€ asti + 200 ilmaispyöräytystä",
-		refLink: "https://deeplogic.media/a622495c1"
+		refLinkEN: "https://deeplogic.media/aa0d92a32",
+		refLinkFIN: "https://deeplogic.media/a622495c1"
 	},
 	{
 		orderNumberFIN: 15,
@@ -170,7 +179,7 @@ const initialData = [
 		title: "Stelario",
 		descriptionTitleFIN: "Kasino",
 		descriptionFIN: "Bonus 275% jopa 1200€ asti + 275 ilmaispyöräytystä",
-		refLink: "https://record.joinaff.com/_XhQDsdCNLwoysOMpZep-XGNd7ZgqdRLk/7807/"
+		refLinkFIN: "https://record.joinaff.com/_XhQDsdCNLwoysOMpZep-XGNd7ZgqdRLk/7807/"
 	},
 	{
 		orderNumberEN: 1,
@@ -181,7 +190,8 @@ const initialData = [
 		title: "Roobet",
 		descriptionTitleEN: "Casino & sports",
 		descriptionTitleFIN: "Kasino & urheilu",
-		refLink: "https://roobet.com/?ref=makaq"
+		refLinkEN: "https://roobet.com/?ref=makaq",
+		refLinkFIN: "https://roobet.com/?ref=makaq"
 	},
 	{
 		orderNumberEN: 2,
@@ -192,7 +202,8 @@ const initialData = [
 		title: "Stake",
 		descriptionTitleEN: "Casino & sports",
 		descriptionTitleFIN: "Kasino & urheilu",
-		refLink: "https://stake.com/?c=85627fea42"
+		refLinkEN: "https://stake.com/?c=85627fea42",
+		refLinkFIN: "https://stake.com/?c=85627fea42"
 	},
 	{
 		orderNumberEN: 3,
@@ -203,7 +214,8 @@ const initialData = [
 		title: "Rollbit",
 		descriptionTitleEN: "Casino, sports & leverage trading",
 		descriptionTitleFIN: "Kasino, urheilu & vivutus",
-		refLink: "https://rollbit.com/referral/bonusprovider"
+		refLinkEN: "https://rollbit.com/referral/bonusprovider",
+		refLinkFIN: "https://rollbit.com/referral/bonusprovider"
 	},
 	{
 		orderNumberEN: 4,
@@ -214,7 +226,8 @@ const initialData = [
 		title: "Shuffle",
 		descriptionTitleEN: "Casino, sports & leverage trading",
 		descriptionTitleFIN: "Kasino",
-		refLink: "https://shuffle.com/?r=gqjHIqeUDG"
+		refLinkEN: "https://shuffle.com/?r=gqjHIqeUDG",
+		refLinkFIN: "https://shuffle.com/?r=gqjHIqeUDG"
 	},
 	{
 		orderNumberEN: 5,
@@ -225,7 +238,8 @@ const initialData = [
 		title: "CSGOBig",
 		descriptionTitleEN: "Crypto/CS2",
 		descriptionTitleFIN: "Krypto/CS2",
-		refLink: "https://csgobig.com/r/bonusfun"
+		refLinkEN: "https://csgobig.com/r/bonusfun",
+		refLinkFIN: "https://csgobig.com/r/bonusfun"
 	},
 	{
 		orderNumberEN: 6,
@@ -236,7 +250,8 @@ const initialData = [
 		title: "RustyLoot",
 		descriptionTitleEN: "Crypto/Rust",
 		descriptionTitleFIN: "Krypto/Rust",
-		refLink: "https://rustyloot.gg/r/bonusfun"
+		refLinkEN: "https://rustyloot.gg/r/bonusfun",
+		refLinkFIN: "https://rustyloot.gg/r/bonusfun"
 	},
 	{
 		orderNumberEN: 7,
@@ -244,7 +259,7 @@ const initialData = [
 		image: "leon.png",
 		title: "Leon",
 		descriptionTitleEN: "Casino",
-		refLink: "https://ksa5lu5y3o.com/?serial=36559&creative_id=154&anid="
+		refLinkEN: "https://ksa5lu5y3o.com/?serial=36559&creative_id=154&anid="
 	},
 	{
 		orderNumberEN: 16,
@@ -253,7 +268,7 @@ const initialData = [
 		title: "Twin",
 		descriptionTitleEN: "Casino",
 		descriptionEN: "Bonus 100% up to 400€ + 400 freespins",
-		refLink: "https://ksa5lu5y3o.com/?serial=36559&creative_id=154&anid="
+		refLinkEN: "https://ksa5lu5y3o.com/?serial=36559&creative_id=154&anid="
 	},
 ]
 

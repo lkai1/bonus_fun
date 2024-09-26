@@ -31,8 +31,10 @@ const UpdateCard = ({ card, reloadCards }) => {
 	const [showDescriptionInputFINState, setShowDescriptionInputFINState] = useState(card.descriptionFIN ? false : true)
 	const [descriptionFINState, setDescriptionFINState] = useState(card.descriptionFIN)
 
-	const [showClaimLinkInputState, setShowClaimLinkInputState] = useState(card.refLink ? false : true)
-	const [claimLinkState, setClaimLinkState] = useState(card.refLink)
+	const [showClaimLinkInputENState, setShowClaimLinkInputENState] = useState(card.refLinkEN ? false : true)
+	const [claimLinkENState, setClaimLinkENState] = useState(card.refLinkEN)
+	const [showClaimLinkInputFINState, setShowClaimLinkInputFINState] = useState(card.refLinkFIN ? false : true)
+	const [claimLinkFINState, setClaimLinkFINState] = useState(card.refLinkFIN)
 
 	const [selectedLanguage, setSelectedLanguage] = useState("en")
 
@@ -66,7 +68,8 @@ const UpdateCard = ({ card, reloadCards }) => {
 		formData.append("descriptionFIN", descriptionFINState)
 		formData.append("orderNumberEN", card.orderNumberEN)
 		formData.append("orderNumberFIN", card.orderNumberFIN)
-		formData.append("refLink", claimLinkState)
+		formData.append("refLinkEN", claimLinkENState)
+		formData.append("refLinkFIN", claimLinkFINState)
 
 		await axios.patch("/api/card", formData, {
 			headers: {
@@ -216,17 +219,31 @@ const UpdateCard = ({ card, reloadCards }) => {
 						}
 
 
-						<div className={styles.claimLinkEditContainer}>
-							{showClaimLinkInputState === false ?
-								<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputState(true) }}>
-									<a className={styles.claimLink} href="https://stake.com/fi" target="_blank">Claim Bonus</a>
-								</div>
-								:
-								<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkState) { setShowClaimLinkInputState(false) } }}>
-									<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkState} onChange={(e) => { setClaimLinkState(e.target.value) }} />
-								</div>
-							}
-						</div>
+						{selectedLanguage === "en" ?
+							<div className={styles.claimLinkEditContainer}>
+								{showClaimLinkInputENState === false ?
+									<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputENState(true) }}>
+										<a className={styles.claimLink}>Claim Bonus</a>
+									</div>
+									:
+									<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkENState) { setShowClaimLinkInputENState(false) } }}>
+										<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkENState} onChange={(e) => { setClaimLinkENState(e.target.value) }} />
+									</div>
+								}
+							</div>
+							:
+							<div className={styles.claimLinkEditContainer}>
+								{showClaimLinkInputFINState === false ?
+									<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputFINState(true) }}>
+										<a className={styles.claimLink}>Claim Bonus</a>
+									</div>
+									:
+									<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkFINState) { setShowClaimLinkInputFINState(false) } }}>
+										<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkFINState} onChange={(e) => { setClaimLinkFINState(e.target.value) }} />
+									</div>
+								}
+							</div>
+						}
 
 
 					</div>

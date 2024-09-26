@@ -30,8 +30,10 @@ const NewCard = ({ reloadCards }) => {
 	const [showDescriptionInputFINState, setShowDescriptionInputFINState] = useState(true)
 	const [descriptionFINState, setDescriptionFINState] = useState("")
 
-	const [showClaimLinkInputState, setShowClaimLinkInputState] = useState(true)
-	const [claimLinkState, setClaimLinkState] = useState("")
+	const [showClaimLinkInputENState, setShowClaimLinkInputENState] = useState(true)
+	const [claimLinkENState, setClaimLinkENState] = useState("")
+	const [showClaimLinkInputFINState, setShowClaimLinkInputFINState] = useState(true)
+	const [claimLinkFINState, setClaimLinkFINState] = useState("")
 
 	const [selectedLanguage, setSelectedLanguage] = useState("en")
 
@@ -75,8 +77,10 @@ const NewCard = ({ reloadCards }) => {
 		setShowDescriptionInputFINState(true)
 		setDescriptionFINState("")
 
-		setShowClaimLinkInputState(true)
-		setClaimLinkState("")
+		setShowClaimLinkInputENState(true)
+		setClaimLinkENState("")
+		setShowClaimLinkInputFINState(true)
+		setClaimLinkFINState("")
 
 		setSelectedLanguage("en")
 	}
@@ -91,7 +95,8 @@ const NewCard = ({ reloadCards }) => {
 		formData.append("descriptionTitleFIN", descriptionTitleFINState)
 		formData.append("descriptionEN", descriptionENState)
 		formData.append("descriptionFIN", descriptionFINState)
-		formData.append("refLink", claimLinkState)
+		formData.append("refLinkEN", claimLinkENState)
+		formData.append("refLinkFIN", claimLinkFINState)
 
 		await axios.post("/api/card", formData, {
 			headers: {
@@ -113,9 +118,9 @@ const NewCard = ({ reloadCards }) => {
 			<div className={styles.contentContainer}>
 				<p className={styles.guideText}>
 					{selectedLanguage === "en" ?
-						"Enter category, description title, and description, only if you want this card to be in the english home page."
+						"Enter category, description title, description and reflink, only if you want this card to be in the english home page."
 						:
-						"Enter category, description title, and description, only if you want this card to be in the finnish home page."}
+						"Enter category, description title, description and reflink, only if you want this card to be in the finnish home page."}
 				</p>
 				<div className={styles.cardContainer}>
 					<div className={styles.cardContent}>
@@ -228,18 +233,31 @@ const NewCard = ({ reloadCards }) => {
 							</div>
 						}
 
-
-						<div className={styles.claimLinkEditContainer}>
-							{showClaimLinkInputState === false ?
-								<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputState(true) }}>
-									<a className={styles.claimLink} href="https://stake.com/fi" target="_blank">Claim Bonus</a>
-								</div>
-								:
-								<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkState) { setShowClaimLinkInputState(false) } }}>
-									<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkState} onChange={(e) => { setClaimLinkState(e.target.value) }} />
-								</div>
-							}
-						</div>
+						{selectedLanguage === "en" ?
+							<div className={styles.claimLinkEditContainer}>
+								{showClaimLinkInputENState === false ?
+									<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputENState(true) }}>
+										<a className={styles.claimLink}>Claim Bonus</a>
+									</div>
+									:
+									<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkENState) { setShowClaimLinkInputENState(false) } }}>
+										<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkENState} onChange={(e) => { setClaimLinkENState(e.target.value) }} />
+									</div>
+								}
+							</div>
+							:
+							<div className={styles.claimLinkEditContainer}>
+								{showClaimLinkInputFINState === false ?
+									<div className={styles.claimLinkContainer} onMouseOver={() => { setShowClaimLinkInputFINState(true) }}>
+										<a className={styles.claimLink}>Claim Bonus</a>
+									</div>
+									:
+									<div className={styles.claimLinkInputContainer} onMouseLeave={() => { if (claimLinkFINState) { setShowClaimLinkInputFINState(false) } }}>
+										<input className={styles.claimLinkInput} placeholder="Enter claim link" value={claimLinkFINState} onChange={(e) => { setClaimLinkFINState(e.target.value) }} />
+									</div>
+								}
+							</div>
+						}
 
 
 					</div>
