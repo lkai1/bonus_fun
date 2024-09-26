@@ -67,13 +67,14 @@ const UpdateCard = ({ card, reloadCards }) => {
 		formData.append("descriptionTitleFIN", descriptionTitleFINState)
 		formData.append("descriptionEN", descriptionENState)
 		formData.append("descriptionFIN", descriptionFINState)
+		formData.append("orderNumberEN", card.orderNumberEN)
+		formData.append("orderNumberFIN", card.orderNumberFIN)
 		formData.append("refLink", claimLinkState)
 
-		await axios.patch("/api/card", {
+		await axios.patch("/api/card", formData, {
 			headers: {
 				Authorization: getAuthToken()
-			},
-			data: formData
+			}
 		})
 			.then(() => {
 				alert("Successfully updated card.")

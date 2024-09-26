@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className={styles.main}>
       <Header />
-      <CardsContainer />
+      <CardsContainer language={"en"} />
       <Footer />
     </div>
   );

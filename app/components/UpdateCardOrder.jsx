@@ -8,7 +8,7 @@ import { getAuthToken } from "../utils/authToken"
 const UpdateCardOrder = ({ card, totalNumberOfCards, language, reloadCards }) => {
 
 	const [showOrderSelectionMenu, setShowOrderSelectionMenu] = useState(false)
-	const [cardOrderState, setCardOrderState] = useState(language === "en" ? card.orderNumberEN : card.orderNumberFIN)
+	const cardOrder = language === "en" ? card.orderNumberEN : card.orderNumberFIN
 
 	const handleUpdateCard = async (number) => {
 		const formData = new FormData()
@@ -72,7 +72,7 @@ const UpdateCardOrder = ({ card, totalNumberOfCards, language, reloadCards }) =>
 					</button>
 				})}
 			</div>
-			<button className={styles.orderSelectionMenuButton} onClick={() => { setShowOrderSelectionMenu(!showOrderSelectionMenu) }}>{`#${cardOrderState}`}</button>
+			<button className={styles.orderSelectionMenuButton} onClick={() => { setShowOrderSelectionMenu(!showOrderSelectionMenu) }}>{`#${cardOrder}`}</button>
 		</div>
 	)
 }

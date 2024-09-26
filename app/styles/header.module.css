@@ -11,6 +11,22 @@
 	transition: transform 0.8s ease-in-out;
 }
 
+@media (max-width: 400px) {
+	.logoImage {
+		width: 280px;
+		height: auto;
+		transition: transform 0.8s ease-in-out;
+	}
+}
+
+@media (max-width: 500px) {
+	.logoImage {
+		width: 300px;
+		height: auto;
+		transition: transform 0.8s ease-in-out;
+	}
+}
+
 .logoImage:hover {
 	animation: shrink-grow 0.8s ease-in-out forwards;
 }

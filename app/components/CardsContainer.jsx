@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import styles from "../styles/cardsContainer.module.css"
 import Card from "./Card"
 import axios from "axios"
+import CardFI from "./CardFI";
 
-const CardsContainer = () => {
+const CardsContainer = ({ language }) => {
 
 	const [cardsState, setCardsState] = useState([])
 
@@ -14,7 +15,7 @@ const CardsContainer = () => {
 			try {
 				const response = await axios.get(`/api/card`, {
 					params: {
-						language: "en"
+						language: language
 					}
 				});
 				//on finnish page use finnish order
@@ -31,29 +32,50 @@ const CardsContainer = () => {
 		<div className={styles.main}>
 			<div className={styles.content}>
 				<div className={styles.topBonusCard}>
-					<h1 className={styles.topBonusTitle}>Top bonus of the week</h1>
-					{cardsState[0] ?
+					<h1 className={styles.topBonusTitle}>{language === "en" ? "Top bonus of the week" : "Viikon paras bonus"}</h1>
+					{cardsState[0] && language === "en" ?
 						<Card
 							key={uuidv4()}
 							data={cardsState[0]}
 						/>
 						:
-						<></>
+						cardsState[0] ?
+							<CardFI
+								key={uuidv4()}
+								data={cardsState[0]}
+							/>
+							:
+							<></>
 					}
 				</div>
-				<p className={styles.bonusCardsTitle}>Win before you play</p>
-				<div className={styles.bonusCards}>
-					{cardsState.filter((card) => { return card.orderNumberEN !== cardsState[0].orderNumberEN })
-						.map((card) => {
-							return (
-								<Card
-									key={uuidv4()}
-									data={card}
-								/>
-							)
-						})
-					}
-				</div>
+				<p className={styles.bonusCardsTitle}>{language === "en" ? "Win before you play" : "Voita jo ennen kuin pelaat"}</p>
+				{language === "en" ?
+					<div className={styles.bonusCards}>
+						{cardsState.filter((card) => { return card.orderNumberEN !== cardsState[0].orderNumberEN })
+							.map((card) => {
+								return (
+									<Card
+										key={uuidv4()}
+										data={card}
+									/>
+								)
+							})
+						}
+					</div>
+					:
+					<div className={styles.bonusCards}>
+						{cardsState.filter((card) => { return card.orderNumberFIN !== cardsState[0].orderNumberFIN })
+							.map((card) => {
+								return (
+									<CardFI
+										key={uuidv4()}
+										data={card}
+									/>
+								)
+							})
+						}
+					</div>
+				}
 			</div>
 		</div>
 	)

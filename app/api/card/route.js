@@ -65,7 +65,6 @@ const postHandler = async (request) => {
 			dataWithOrder = await setCardOrdersOnCreateFIN(data);
 		}
 
-		//comment out this line to check if card is saved in db before this line. to make sure this all works. it shouldnt be.
 		await db.cards.create(dataWithOrder);
 
 		return new Response("Card created", { status: 200 });
@@ -88,6 +87,14 @@ const patchHandler = async (request) => {
 		} else if (!!data.orderNumberFIN) {
 			data.orderNumberFIN = Number(data.orderNumberFIN)
 		}
+		if ((data.categoryEN || data.descriptionTitleEN || data.descriptionEN) && !!card.orderNumberEN == false) {
+			const result = await setCardOrdersOnCreateEN(data)
+			card.orderNumberEN = result.orderNumberEN
+		}
+		if ((data.categoryFIN || data.descriptionTitleFIN || data.descriptionFIN) && !!card.orderNumberFIN == false) {
+			const result = await setCardOrdersOnCreateFIN(data)
+			card.orderNumberFIN = result.orderNumberFIN
+		}
 
 		if (Object.values(data).length === 2 && (!!data.orderNumberEN || !!data.orderNumberFIN)) {
 			if (data.orderNumberEN !== card.orderNumberEN && !!card.orderNumberEN) {
@@ -105,8 +112,15 @@ const patchHandler = async (request) => {
 				}
 				imageName = await storeImage(data.image)
 			}
-			Object.keys(data).forEach((key) => { key === "image" && data.image ? card.image = imageName : key === "orderNumberEN" ? null : key === "orderNumberFIN" ? null : data[key] ? card[key] = data[key] : null })
+			Object.keys(data).forEach((key) => {
+				if (key === "image" && data.image) {
+					card.image = imageName
+				} else if (key !== "orderNumberEN" && key !== "orderNumberFIN" && key !== "image") {
+					card[key] = data[key]
+				}
+			})
 
+			console.log(card)
 			if (!card.descriptionEN && !card.descriptionTitleEN && !card.categoryEN) {
 				card.orderNumberEN = null
 			}
@@ -123,7 +137,7 @@ const patchHandler = async (request) => {
 				await setCardOrdersOnUpdateFIN(data.orderNumberFIN, card)
 			}
 		}
-		//comment out this line to check if card is saved in db before this line. to make sure this all works. it shouldnt be.
+
 		await card.save()
 		return new Response("Card modified", { status: 200 })
 	} catch (e) {

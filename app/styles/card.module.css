@@ -1,5 +1,5 @@
 .main {
-	width: 340px;
+	width: 315px;
 	height: 560px;
 	position: relative;
 	border-radius: 20px;
@@ -10,7 +10,6 @@
 	margin: 20px;
 }
 
-/* check responsiveness for these cards also width: 315px */
 .main:hover {
 	box-shadow: 0 0 50px #eeae0ee8;
 }
