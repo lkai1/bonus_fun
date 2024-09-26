@@ -10,7 +10,7 @@ const verifyJWTMiddleware = (_request, response, next) => {
 			jwt.verify(token, process.env.TOKEN_SECRET)
 			next()
 		} catch (e) {
-			console.log(e)
+			console.error(e)
 			response.status(400).send("Invalid token!")
 		}
 

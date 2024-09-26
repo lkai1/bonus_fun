@@ -11,7 +11,7 @@ const initDb = async () => {
 		await createNewDB(client)
 		await db.sequelize.sync({ alter: true })
 		await initAdmin()
-		/* await initCards() */
+		await initCards()
 		await client.end()
 	} catch (e) {
 		console.error(e)

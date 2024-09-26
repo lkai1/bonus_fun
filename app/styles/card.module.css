@@ -7,17 +7,19 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 20px;
+	margin: 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .main:hover {
-	box-shadow: 0 0 50px #eeae0ee8;
+	box-shadow: 0 2px 80px -20px #feaa22;
 }
 
 .content {
 	position: relative;
 	border-radius: 20px;
-	background-color: black;
+	background-color: #1a1921;
 	padding: 20px;
 	height: calc(100% - 5px);
 	width: calc(100% - 5px);
@@ -110,7 +112,7 @@
 	border-radius: 15px;
 	width: 100%;
 	text-decoration: none;
-	box-shadow: 0 0 50px #eeae0e96;
+	box-shadow: 0 0 50px #eeaf0e4d;
 	font-size: 38px;
 	font-weight: bold;
 	padding: 15px;
@@ -118,5 +120,11 @@
 }
 
 .claimButton:hover {
-	box-shadow: 0 0 50px #eeae0ee8;
+	box-shadow: 0 0 50px 20px #eeaf0e4d;
+}
+
+@media (min-width: 600px) {
+	.main {
+		margin: 20px;
+	}
 }

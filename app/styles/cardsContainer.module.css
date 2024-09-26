@@ -16,11 +16,10 @@
 .content {
 	position: relative;
 	border-radius: 20px;
-	background-color: black;
-	padding: 20px;
+	background-color: #1a1921;
 	height: calc(100% - 2px);
 	width: calc(100% - 2px);
-	padding-top: 200px;
+	padding-top: 170px;
 }
 
 .topBonusTitle {
@@ -45,7 +44,8 @@
 .bonusCardsTitle {
 	color: #676d7c;
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 30px;
+	margin-bottom: 20px;
 	font-size: 25px;
 	font-style: italic;
 	font-weight: 600;
@@ -58,4 +58,66 @@
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+
+@media (max-width: 1200px) {
+	.main {
+		width: 95%;
+	}
+}
+
+@media (max-width: 800px) {
+	.main {
+		margin-bottom: 50px;
+		width: 95%;
+	}
+
+	.content {
+		padding-top: 160px;
+	}
+}
+
+@media (max-width: 700px) {
+	.main {
+		margin-bottom: 50px;
+		width: 95%;
+	}
+
+	.content {
+		padding-top: 140px;
+	}
+}
+
+@media (max-width: 600px) {
+	.main {
+		margin-bottom: 50px;
+		width: 95%;
+	}
+
+	.content {
+		padding-top: 130px;
+	}
+}
+
+@media (max-width: 500px) {
+	.main {
+		margin-bottom: 50px;
+		width: 95%;
+	}
+
+	.content {
+		padding-top: 100px;
+	}
+}
+
+@media (max-width: 400px) {
+	.main {
+		margin-bottom: 50px;
+		width: 100%;
+	}
+
+	.content {
+		padding-top: 80px;
+	}
 }

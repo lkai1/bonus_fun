@@ -7,15 +7,13 @@ const Footer = () => {
 	return (
 		<footer className={styles.main}>
 			<Image
+				className={styles.gambleAwareImage}
 				src={gambleAwareImage}
-				height={100}
-				width={300}
 				alt="image"
 			/>
 			<Image
+				className={styles.gambleAwareImage}
 				src={responsibleGamblingImage}
-				height={100}
-				width={300}
 				alt="image"
 			/>
 		</footer>

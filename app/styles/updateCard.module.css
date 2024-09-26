@@ -19,7 +19,6 @@
 	font-weight: bold;
 }
 
-/* add responsive padding if screen higher than 400px to make cards not stick together  */
 .cardContainer {
 	width: 315px;
 	height: 560px;
@@ -37,7 +36,7 @@
 .cardContent {
 	position: relative;
 	border-radius: 20px;
-	background-color: black;
+	background-color: #1a1921;
 	padding: 20px;
 	height: calc(100% - 5px);
 	width: calc(100% - 5px);
@@ -368,4 +367,10 @@
 	padding: 15px;
 	cursor: pointer;
 	margin-bottom: 30px;
+}
+
+@media (min-width: 600px) {
+	.main {
+		margin: 20px;
+	}
 }

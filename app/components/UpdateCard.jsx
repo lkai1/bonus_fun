@@ -36,9 +36,6 @@ const UpdateCard = ({ card, reloadCards }) => {
 
 	const [selectedLanguage, setSelectedLanguage] = useState("en")
 
-	/* const [showOrderSelectionMenu, setShowOrderSelectionMenu] = useState(false)
-	const [cardOrderState, setCardOrderState] = useState(card.order) */
-
 	const handleImageChange = (e) => {
 		const file = e.target.files[0];
 		if (file) {

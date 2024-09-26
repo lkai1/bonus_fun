@@ -87,6 +87,7 @@ const patchHandler = async (request) => {
 		} else if (!!data.orderNumberFIN) {
 			data.orderNumberFIN = Number(data.orderNumberFIN)
 		}
+
 		if ((data.categoryEN || data.descriptionTitleEN || data.descriptionEN) && !!card.orderNumberEN == false) {
 			const result = await setCardOrdersOnCreateEN(data)
 			card.orderNumberEN = result.orderNumberEN
@@ -116,16 +117,20 @@ const patchHandler = async (request) => {
 				if (key === "image" && data.image) {
 					card.image = imageName
 				} else if (key !== "orderNumberEN" && key !== "orderNumberFIN" && key !== "image") {
-					card[key] = data[key]
+					if (data[key] === "null") {
+						card[key] = null
+					} else {
+						card[key] = data[key]
+					}
 				}
 			})
-
-			console.log(card)
 			if (!card.descriptionEN && !card.descriptionTitleEN && !card.categoryEN) {
+				await setCardsOrdersOnDeleteEN(card.orderNumberEN)
 				card.orderNumberEN = null
 			}
 
 			if (!card.descriptionFIN && !card.descriptionTitleEFIN && !card.categoryFIN) {
+				await setCardsOrdersOnDeleteFIN(card.orderNumberFIN)
 				card.orderNumberFIN = null
 			}
 
@@ -137,7 +142,6 @@ const patchHandler = async (request) => {
 				await setCardOrdersOnUpdateFIN(data.orderNumberFIN, card)
 			}
 		}
-
 		await card.save()
 		return new Response("Card modified", { status: 200 })
 	} catch (e) {

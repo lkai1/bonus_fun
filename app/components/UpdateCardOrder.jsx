@@ -27,7 +27,6 @@ const UpdateCardOrder = ({ card, totalNumberOfCards, language, reloadCards }) =>
 			})
 	}
 
-	//responsiveness same as NewCard and also same for Card
 	return (
 		<div className={styles.main}>
 			<div className={styles.cardContainer}>

@@ -18,11 +18,9 @@ const CardsContainer = ({ language }) => {
 						language: language
 					}
 				});
-				//on finnish page use finnish order
-				const sortedCards = response.data.sort((a, b) => a.orderNumberEN - b.orderNumberEN)
-				setCardsState(sortedCards)
+				setCardsState(language === "en" ? response.data.sort((a, b) => a.orderNumberEN - b.orderNumberEN) : response.data.sort((a, b) => a.orderNumberFIN - b.orderNumberFIN))
 			} catch (e) {
-				console.log("500: Failed to retrieve cards.")
+				console.error("500: Failed to retrieve cards.")
 			}
 		}
 		getCards()

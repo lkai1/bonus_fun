@@ -49,7 +49,7 @@
 .cardContent {
 	position: relative;
 	border-radius: 20px;
-	background-color: black;
+	background-color: #1a1921;
 	padding: 20px;
 	height: calc(100% - 5px);
 	width: calc(100% - 5px);

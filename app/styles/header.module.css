@@ -1,34 +1,18 @@
 .main {
 	display: flex;
 	justify-content: center;
-	margin-bottom: -150px;
+	margin-bottom: -170px;
 	z-index: 2;
 }
 
 .logoImage {
 	width: 550px;
 	height: auto;
-	transition: transform 0.8s ease-in-out;
-}
-
-@media (max-width: 400px) {
-	.logoImage {
-		width: 280px;
-		height: auto;
-		transition: transform 0.8s ease-in-out;
-	}
-}
-
-@media (max-width: 500px) {
-	.logoImage {
-		width: 300px;
-		height: auto;
-		transition: transform 0.8s ease-in-out;
-	}
+	transition: transform 0.85s ease-in-out;
 }
 
 .logoImage:hover {
-	animation: shrink-grow 0.8s ease-in-out forwards;
+	animation: shrink-grow 0.85s ease-in-out forwards;
 }
 
 @keyframes shrink-grow {
@@ -54,5 +38,60 @@
 
 	100% {
 		transform: scale(1);
+	}
+}
+
+@media (max-width: 800px) {
+	.main {
+		margin-bottom: -155px;
+	}
+
+	.logoImage {
+		width: 500px;
+		height: auto;
+	}
+}
+
+@media (max-width: 700px) {
+	.main {
+		margin-bottom: -140px;
+	}
+
+	.logoImage {
+		width: 450px;
+		height: auto;
+	}
+}
+
+@media (max-width: 600px) {
+	.main {
+		margin-bottom: -120px;
+	}
+
+	.logoImage {
+		width: 380px;
+		height: auto;
+	}
+}
+
+@media (max-width: 500px) {
+	.main {
+		margin-bottom: -110px;
+	}
+
+	.logoImage {
+		width: 350px;
+		height: auto;
+	}
+}
+
+@media (max-width: 400px) {
+	.main {
+		margin-bottom: -88px;
+	}
+
+	.logoImage {
+		width: 280px;
+		height: auto;
 	}
 }
