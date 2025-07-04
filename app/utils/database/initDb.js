@@ -6,7 +6,7 @@ import initAdmin from './initAdmin.js'
 
 const initDb = async () => {
 	try {
-		const client = new pg.Client(`postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
+		const client = new pg.Client(process.env.DB_URL)
 		await client.connect()
 		await createNewDB(client)
 		await db.sequelize.sync({ alter: true })
