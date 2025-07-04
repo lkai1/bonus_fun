@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sequelize = new Sequelize.Sequelize(process.env.DB_URL, { dialect: 'postgres', logging: false })
+const sequelize = new Sequelize.Sequelize(process.env.DATABASE_URL, { dialect: 'postgres', logging: false })
 
 const db = {}
 

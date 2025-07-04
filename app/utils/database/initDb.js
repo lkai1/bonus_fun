@@ -9,7 +9,7 @@ dotenv.config();
 
 const initDb = async () => {
 	try {
-		const client = new pg.Client(process.env.DB_URL, { dialect: 'postgres', logging: false })
+		const client = new pg.Client(process.env.DATABASE_URL, { dialect: 'postgres', logging: false })
 		await client.connect()
 		await createNewDB(client)
 		await db.sequelize.sync({ alter: true })

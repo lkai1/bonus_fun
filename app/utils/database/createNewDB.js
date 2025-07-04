@@ -8,7 +8,7 @@ const createNewDB = async (client) => {
 			`SELECT EXISTS(SELECT datname FROM pg_catalog.pg_database WHERE datname = '${process.env.DB_NAME}');`
 		)
 		if (!result.rows[0].exists) {
-			await client.query(`CREATE DATABASE ${process.env.DB_NAME}`)
+			await client.query(`CREATE DATABASE ${process.env.DATABASE_URL}`)
 		}
 	} catch (e) {
 		console.error(e)
