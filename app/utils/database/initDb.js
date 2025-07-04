@@ -3,6 +3,9 @@ import db from './db.js'
 import createNewDB from './createNewDB.js'
 import initCards from './initCards.js'
 import initAdmin from './initAdmin.js'
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const initDb = async () => {
 	try {
