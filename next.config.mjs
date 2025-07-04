@@ -5,7 +5,7 @@ let webpackHasRun = false
 
 const nextConfig = {
 	experimental: {
-		serverComponentsExternalPackages: ['sequelize'],
+		serverExternalPackages: ['sequelize'],
 	},
 	webpack: (config, { isServer }) => {
 		if (isServer && !webpackHasRun) {
