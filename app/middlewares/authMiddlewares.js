@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken"
 import { headers } from "next/headers"
 
-const verifyJWTMiddleware = (_request, response, next) => {
+const verifyJWTMiddleware = async (_request, response, next) => {
 	try {
-		const token = headers().get("authorization")
+		const headersList = await headers()
+		const token = headersList.get('authorization')
+
 		if (!token) return response.status(401).send("Access denied!")
 
 		try {

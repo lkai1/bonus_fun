@@ -4,7 +4,9 @@ import jwt from "jsonwebtoken"
 
 export const GET = async () => {
 	try {
-		const token = headers().get('authorization')
+		const headersList = await headers()
+		const token = headersList.get('authorization')
+
 		if (!token) return NextResponse.json("Access denied.", { status: 401 })
 
 		try {
