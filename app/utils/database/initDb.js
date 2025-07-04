@@ -4,6 +4,7 @@ import initAdmin from './initAdmin.js'
 
 const initDb = async () => {
 	try {
+		console.log('Connecting to database...')
 		await db.sequelize.authenticate()
 		console.log('✅ Database connection successful')
 
@@ -16,7 +17,6 @@ const initDb = async () => {
 		console.log('✅ Database initialized')
 	} catch (e) {
 		console.error('❌ Error initializing database:', e)
-		process.exit(1)
 	}
 }
 
