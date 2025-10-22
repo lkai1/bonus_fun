@@ -12,6 +12,7 @@ const Card = ({ data }) => {
 						className={styles.image}
 						src={`data:image/png;base64,${data.image}`}
 						alt="image"
+						loading="lazy"
 					/>
 				</div>
 				<div className={styles.casinoNameContainer}>

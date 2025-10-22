@@ -10,11 +10,13 @@ const Footer = () => {
 				className={styles.gambleAwareImage}
 				src={gambleAwareImage}
 				alt="image"
+				loading="lazy"
 			/>
 			<Image
 				className={styles.gambleAwareImage}
 				src={responsibleGamblingImage}
 				alt="image"
+				loading="lazy"
 			/>
 		</footer>
 	)

@@ -29,48 +29,28 @@ const CardsContainer = ({ language }) => {
 	return (
 		<div className={styles.main}>
 			<div className={styles.content}>
-				<div className={styles.topBonusCard}>
-					<h1 className={styles.topBonusTitle}>{language === "en" ? "Top bonus of the week" : "Viikon paras bonus"}</h1>
-					{cardsState[0] && language === "en" ?
-						<Card
-							key={uuidv4()}
-							data={cardsState[0]}
-						/>
-						:
-						cardsState[0] ?
-							<CardFI
-								key={uuidv4()}
-								data={cardsState[0]}
-							/>
-							:
-							<></>
-					}
-				</div>
-				<p className={styles.bonusCardsTitle}>{language === "en" ? "Win before you play" : "Voita jo ennen kuin pelaat"}</p>
 				{language === "en" ?
 					<div className={styles.bonusCards}>
-						{cardsState.filter((card) => { return card.orderNumberEN !== cardsState[0].orderNumberEN })
-							.map((card) => {
-								return (
-									<Card
-										key={uuidv4()}
-										data={card}
-									/>
-								)
-							})
+						{cardsState.map((card) => {
+							return (
+								<Card
+									key={uuidv4()}
+									data={card}
+								/>
+							)
+						})
 						}
 					</div>
 					:
 					<div className={styles.bonusCards}>
-						{cardsState.filter((card) => { return card.orderNumberFIN !== cardsState[0].orderNumberFIN })
-							.map((card) => {
-								return (
-									<CardFI
-										key={uuidv4()}
-										data={card}
-									/>
-								)
-							})
+						{cardsState.map((card) => {
+							return (
+								<CardFI
+									key={uuidv4()}
+									data={card}
+								/>
+							)
+						})
 						}
 					</div>
 				}

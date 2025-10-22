@@ -141,7 +141,7 @@ const UpdateCard = ({ card, reloadCards }) => {
 						<div className={styles.imageEditContainer}>
 							{showImageInputState === false ?
 								<div className={styles.imageContainer} onMouseOver={() => { { setShowImageInput(true) } }}>
-									<img className={styles.image} src={imagePreviewState} alt="image" />
+									<img className={styles.image} src={imagePreviewState} alt="image" loading="lazy" />
 								</div>
 								:
 								<div className={styles.imageInputContainer} onMouseLeave={() => { if (imagePreviewState) { setShowImageInput(false) } }}>

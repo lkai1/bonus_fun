@@ -22,32 +22,14 @@
 	padding-top: 170px;
 }
 
-.topBonusTitle {
-	text-align: center;
-	margin-top: 0;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 25px;
-	font-style: italic;
-	font-weight: 600;
-	color: white;
-}
-
-.topBonusCard {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
 .bonusCardsTitle {
-	color: #676d7c;
+	color: white;
+	text-align: center;
 	margin-left: 20px;
 	margin-top: 30px;
+	font-style: italic;
 	margin-bottom: 20px;
 	font-size: 25px;
-	font-style: italic;
 	font-weight: 600;
 }
 

@@ -39,6 +39,7 @@ const UpdateCardOrder = ({ card, totalNumberOfCards, language, reloadCards }) =>
 							className={styles.image}
 							src={`data:image/png;base64,${card.image}`}
 							alt="image"
+							loading="lazy"
 						/>
 					</div>
 					<div className={styles.casinoNameContainer}>
